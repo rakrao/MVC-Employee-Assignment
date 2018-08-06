@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+
+	<!-- bean id dao, service and controller having classes pointing to their 
+		respective packages. Here, service refers to dao and controller refers to 
+		service for performing their tasks -->
+	<bean id="dao" class="com.cg.dao.EmployeeDAO"></bean>
+	<bean id="service" class="com.cg.service.EmployeeService">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean id="controller" class="com.cg.controller.EmployeeController">
+		<property name="service" ref="service"></property>
+	</bean>
+</beans>
